@@ -1,0 +1,15 @@
+{% extends 'homepage/base.html' %}
+
+{% block main %}
+    <h1>Events</h1>
+
+    <p>The 2019-2020 school year is coming up, and we’re sure to have some fun things going on! If you have any requests for fall semester programming, let us know <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxrwkgbhRk5Pp5SK_bWAe4BcmhFWQ4OAi0EErdaLMWzBaZQw/viewform">here</a>.</p>
+
+    <p>Here are some pictures of past events! We host a wide variety of activities, and in the past we’ve put on liquid nitrogen ice-cream socials, tours of lab facilities, hot chocolate astronomy nights, and more.</p>
+
+    {% for event in events %}
+        <h2>{{event.title}}</h2>
+        <h4>{{event.date}}</h4>
+        <p>{{event.description}}</p>
+    {% endfor %}
+{% endblock %}
