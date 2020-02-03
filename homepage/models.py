@@ -8,6 +8,7 @@ class ExecMember(models.Model):
     email = models.CharField(max_length=100)
     description = models.TextField()
     picture = models.ImageField()
+    sort_index = models.IntegerField()
 
 class Project(models.Model):
     title = models.CharField(max_length=500)

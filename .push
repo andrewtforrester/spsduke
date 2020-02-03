@@ -1,0 +1,9 @@
+#! /bin/bash
+
+python3 manage.py collectstatic
+
+git add -A
+git commit -m 'note'
+git push
+
+ssh atf@172.105.157.135

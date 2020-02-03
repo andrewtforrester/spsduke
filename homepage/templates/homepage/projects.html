@@ -1,9 +1,9 @@
 {% extends 'homepage/base.html' %}
 
 {% block main %}
-    <h1>Projects</h1>
+    <h1 class="display-1">Projects</h1>
 
-    <p>See what SPS is doing for Duke’s undergraduate physics community! Here’s a sneak peak at the projects we’re currently working on behind the scenes.</p>
+    <p class="lead">See what SPS is doing for Duke’s undergraduate physics community! Here’s a sneak peak at the projects we’re currently working on behind the scenes.</p>
 
     {% for project in projects %}
         <h2>{{project.title}}</h2>

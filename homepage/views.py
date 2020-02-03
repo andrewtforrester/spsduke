@@ -1,19 +1,50 @@
 from django.shortcuts import render
+from homepage.models import *
 
 def home(request):
-    return render(request, 'homepage/home.html', {})
+
+    context = {
+
+    }
+
+    return render(request, 'homepage/home.html', context)
 
 def exec(request):
-    return render(request, 'homepage/exec.html', {})
+
+    context = {
+        'execs':ExecMember.objects.all().order_by('sort_index')
+    }
+
+    return render(request, 'homepage/exec.html', context)
 
 def projects(request):
-    return render(request, 'homepage/projects.html', {})
+
+    context = {
+        'projects':Project.objects.all().order_by('datetime_created')
+    }
+
+    return render(request, 'homepage/projects.html', context)
 
 def blog(request):
-    return render(request, 'homepage/blog.html', {})
+
+    context = {
+        'posts':BlogPost.objects.all().order_by('datetime_created')
+    }
+
+    return render(request, 'homepage/blog.html', context)
 
 def events(request):
-    return render(request, 'homepage/events.html', {})
+
+    context = {
+        'events':Event.objects.all().order_by('date')
+    }
+
+    return render(request, 'homepage/events.html', context)
 
 def subscribe(request):
-    return render(request, 'homepage/subscribe.html', {})
+
+    context = {
+
+    }
+
+    return render(request, 'homepage/subscribe.html', context)

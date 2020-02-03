@@ -1,6 +1,9 @@
 {% extends 'homepage/base.html' %}
 
 {% block main %}
+
+    <h1 class="display-1">Blog</h1>
+
     {% for post in posts %}
         <h2>{{post.title}}</h2>
         <h4>{{post.author}}</h4>
