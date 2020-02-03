@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import json
+
+with open('/etc/config.json') as config_file:
+    config = json.load(config)file)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,10 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fk=5qq=q4ckra9kxpb_qu^^5+8@5jj1(c36mx7^23r%8dc^da-'
+SECRET_KEY = config['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
