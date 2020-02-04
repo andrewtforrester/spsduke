@@ -1,19 +1,34 @@
 {% extends 'homepage/base.html' %}
 
+{% block a5 %}active{% endblock %}
+
 {% block main %}
     <h1 class="display-1">Subscribe</h1>
-    <p>Want to learn more about physics and get involved with Duke SPS? Subscribe to our listserv by filling out the form below or emailing Gia Jadick (glj13@duke.edu).</p>
+    <p class="lead">Want to learn more about physics and get involved with Duke SPS? Subscribe to our listserv by filling out the form below or emailing Gia Jadick (glj13@duke.edu).</p>
 
     <form>
         <div class="form-group">
-            <input class="form-control" id="name" placeholder="Name">
+            <label for="name">Full Name</label>
+            <input class="form-control" id="name">
         </div>
+
         <div class="form-group">
-            <input class="form-control" id="name" placeholder="Duke Email">
+            <label for="email">Duke Email</label>
+            <input class="form-control" id="email">
         </div>
+
         <div class="form-group">
-            <input class="form-control" id="name" placeholder="Comment">
+            <label for="comment">Comment</label>
+            <textarea class="form-control box-large align-text-top" id="comment"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+{% endblock %}
+
+{% block bonusstyles %}
+    <style>
+        .box-large {
+            min-height: 200px;
+        }
+    </style>
 {% endblock %}

@@ -13,14 +13,15 @@ class ExecMember(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=500)
     description = models.TextField()
-    datetime_created = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(blank=True)
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=500)
     author = models.CharField(max_length=500)
-    datetime_created = models.DateTimeField(auto_now_add=True)
+    date = models.DateField()
     text = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(blank=True)
 
 class Event(models.Model):
     title = models.CharField(max_length=500)

@@ -20,7 +20,7 @@ def exec(request):
 def projects(request):
 
     context = {
-        'projects':Project.objects.all().order_by('datetime_created')
+        'projects':Project.objects.all().order_by('-date')
     }
 
     return render(request, 'homepage/projects.html', context)
@@ -28,7 +28,7 @@ def projects(request):
 def blog(request):
 
     context = {
-        'posts':BlogPost.objects.all().order_by('datetime_created')
+        'posts':BlogPost.objects.all().order_by('-date')
     }
 
     return render(request, 'homepage/blog.html', context)

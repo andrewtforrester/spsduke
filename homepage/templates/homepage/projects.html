@@ -1,12 +1,14 @@
 {% extends 'homepage/base.html' %}
 
+{% block a2 %}active{% endblock %}
+
 {% block main %}
     <h1 class="display-1">Projects</h1>
 
     <p class="lead">See what SPS is doing for Duke’s undergraduate physics community! Here’s a sneak peak at the projects we’re currently working on behind the scenes.</p>
 
     {% for project in projects %}
-        <h2>{{project.title}}</h2>
-        <p>{{project.description}}</p>
+        <h2 class="project-header">{{project.title}}</h2>
+        <p class="lead project-description">{{project.description}}</p>
     {% endfor %}
 {% endblock %}
