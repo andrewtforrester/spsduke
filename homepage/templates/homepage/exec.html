@@ -7,10 +7,10 @@
     <p class="lead">SPS is a student-driven organization. Here are the faces behind the action. Feel free to reach out to anyone!</p>
 
     {% for exec in execs %}
-        <img src="{{exec.image}}" alt="">
-        <p>{{exec.name}}</p>
+        <img src="{{exec.picture.url}}">
+        <p>{{exec.full_name}}</p>
         <p>{{exec.position}}</p>
-        <p>Class of {{exec.graduation_year}} - {{exec.major}}</p>
+        <p>Class of {{exec.graduation_year}} - {{exec.majors}}</p>
         <p>{{exec.email}}</p>
         <p>{{exec.description}}</p>
     {% endfor %}

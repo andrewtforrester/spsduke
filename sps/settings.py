@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import json
+import markdown
 
 with open('/etc/config.json') as config_file:
     config = json.load(config_file)
@@ -117,9 +118,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+MARKUP_FIELD_TYPES = (
+    ('markdown', markdown.markdown),
+)
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
