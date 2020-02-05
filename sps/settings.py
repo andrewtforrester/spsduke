@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import json
-import markdown
 
 with open('/etc/config.json') as config_file:
     config = json.load(config_file)
@@ -117,10 +116,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-MARKUP_FIELD_TYPES = (
-    ('markdown', markdown.markdown),
-)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
