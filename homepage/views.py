@@ -12,7 +12,8 @@ def home(request):
 def exec(request):
 
     context = {
-        'execs':ExecMember.objects.all().order_by('sort_index')
+        'execs2019':ExecMember.objects.filter(year_term_started=2019).order_by('sort_index'),
+        'execs2020':ExecMember.objects.filter(year_term_started=2020).order_by('sort_index')
     }
 
     return render(request, 'homepage/exec.html', context)

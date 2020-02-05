@@ -5,21 +5,38 @@
 {% block main %}
     <h1 class="display-1">Exec</h1>
     <p class="lead">SPS is a student-driven organization. Here are the faces behind the action. Feel free to reach out to anyone!</p>
-    {% for exec in execs %}
+
+    <h4 class="display-4">2020-2021</h4>
+
+    {% for exec in execs2020 %}
         <div class="row">
             <div class="col-lg">
-                <img class="img-fluid" src="{{exec.picture.url}}">
+                <img class="img-fluid py-5" src="{{exec.picture.url}}">
             </div>
             <div class="col-lg">
                 <p><h2>{{exec.full_name}}</h2></p>
                 <p><h4>{{exec.position}}</h4></p>
                 <p><h4>Class of {{exec.graduation_year}} - {{exec.majors}}</h4></p>
-                <p><h4>{{exec.email}}</h4></p>
+                <p><h4>{{exec.email | urlize}}</h4></p>
                 <p class="lead">{{exec.description}}</p>
             </div>
         </div>
     {% endfor %}
 
+    <h4 class="display-4">2019-2020</h4>
 
-
+    {% for exec in execs2019 %}
+        <div class="row">
+            <div class="col-lg">
+                <img class="img-fluid pb-5" src="{{exec.picture.url}}">
+            </div>
+            <div class="col-lg">
+                <p><h2>{{exec.full_name}}</h2></p>
+                <p><h4>{{exec.position}}</h4></p>
+                <p><h4>Class of {{exec.graduation_year}} - {{exec.majors}}</h4></p>
+                <p><h4>{{exec.email | urlize}}</h4></p>
+                <p class="lead">{{exec.description}}</p>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

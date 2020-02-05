@@ -7,14 +7,16 @@
 {% block main %}
     <h1 class="display-1">Events</h1>
 
-    <p class="lead">If you have any requests for fall semester programming, let us know <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxrwkgbhRk5Pp5SK_bWAe4BcmhFWQ4OAi0EErdaLMWzBaZQw/viewform">here</a>.</p>
+    <p class="lead">Here are some events we have coming up soon! If you have any requests for spring semester programming, let us know <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxrwkgbhRk5Pp5SK_bWAe4BcmhFWQ4OAi0EErdaLMWzBaZQw/viewform">here</a>.</p>
 
     {% for event in events %}
-        <h2>{{event.title}}</h2>
+        <h4 class="display-4">{{event.title}}</h4>
         <h4>{{event.location}}</h4>
         <h4>{{event.date}} @ {{event.time}}</h4>
         <p class="lead">{{event.description}}</p>
     {% endfor %}
+
+    <hr/>
 
     <p class="lead">Here are some pictures of past events! We host a wide variety of activities, and in the past we’ve put on liquid nitrogen ice-cream socials, tours of lab facilities, hot chocolate astronomy nights, and more.</p>
 
@@ -38,6 +40,10 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
+        </div>
+
+        <div style='height: 60px;'>
+
         </div>
     </div>
 {% endblock %}

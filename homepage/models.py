@@ -9,6 +9,7 @@ class ExecMember(models.Model):
     description = models.TextField()
     picture = models.ImageField()
     sort_index = models.IntegerField()
+    year_term_started = models.IntegerField()
 
     def __str__(self):
         return self.full_name
@@ -26,7 +27,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=500)
     author = models.CharField(max_length=500)
     date = models.DateField()
-    text = models.TextField()
+    text = models.TextField(blank=True)
     image = models.ImageField(blank=True)
 
     def __str__(self):
