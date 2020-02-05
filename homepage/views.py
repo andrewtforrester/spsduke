@@ -36,7 +36,9 @@ def blog(request):
 def events(request):
 
     context = {
-        'events':Event.objects.all().order_by('date')
+        'events':Event.objects.all().order_by('date'),
+        'photos':Photo.objects.all().order_by('sort_index'),
+        'first_url':Photo.objects.first().image.url
     }
 
     return render(request, 'homepage/events.html', context)

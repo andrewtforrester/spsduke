@@ -1,17 +1,43 @@
 {% extends 'homepage/base.html' %}
 
+{% load static %}
+
 {% block a4 %}active{% endblock %}
 
 {% block main %}
     <h1 class="display-1">Events</h1>
 
-    <p class="lead">The 2019-2020 school year is coming up, and we’re sure to have some fun things going on! If you have any requests for fall semester programming, let us know <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxrwkgbhRk5Pp5SK_bWAe4BcmhFWQ4OAi0EErdaLMWzBaZQw/viewform">here</a>.</p>
-
-    <p class="lead">Here are some pictures of past events! We host a wide variety of activities, and in the past we’ve put on liquid nitrogen ice-cream socials, tours of lab facilities, hot chocolate astronomy nights, and more.</p>
+    <p class="lead">If you have any requests for fall semester programming, let us know <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxrwkgbhRk5Pp5SK_bWAe4BcmhFWQ4OAi0EErdaLMWzBaZQw/viewform">here</a>.</p>
 
     {% for event in events %}
         <h2>{{event.title}}</h2>
-        <h4>{{event.date}}</h4>
-        <p>{{event.description}}</p>
+        <h4>{{event.location}}</h4>
+        <h4>{{event.date}} @ {{event.time}}</h4>
+        <p class="lead">{{event.description}}</p>
     {% endfor %}
+
+    <p class="lead">Here are some pictures of past events! We host a wide variety of activities, and in the past we’ve put on liquid nitrogen ice-cream socials, tours of lab facilities, hot chocolate astronomy nights, and more.</p>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval='3500'>
+        <ol class="carousel-indicators">
+            {% for photo in photos %}
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{photo.sort_index}}" class="{% if forloop.first %}active{% endif %}"></li>
+            {% endfor %}
+        </ol>
+        <div class="carousel-inner">
+            {% for photo in photos %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <img class="d-block w-100" src="{{photo.image.url}}">
+                </div>
+            {% endfor %}
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
 {% endblock %}

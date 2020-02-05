@@ -35,7 +35,13 @@ class BlogPost(models.Model):
 class Event(models.Model):
     title = models.CharField(max_length=500)
     description = models.TextField()
+    location = models.CharField(max_length=500)
     date = models.DateField()
+    time = models.TimeField(blank=True)
 
     def __str__(self):
         return self.title
+
+class Photo(models.Model):
+    image = models.ImageField()
+    sort_index = models.IntegerField()
