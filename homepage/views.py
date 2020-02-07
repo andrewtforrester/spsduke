@@ -21,7 +21,8 @@ def exec(request):
 def projects(request):
 
     context = {
-        'projects':Project.objects.all().order_by('-date')
+        'current_projects':Project.objects.filter(past=0).order_by('title'),
+        'past_projects':Project.objects.filter(past=1).order_by('title')
     }
 
     return render(request, 'homepage/projects.html', context)

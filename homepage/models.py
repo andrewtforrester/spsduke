@@ -19,6 +19,7 @@ class Project(models.Model):
     description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(blank=True)
+    past = models.IntegerField()
 
     def __str__(self):
         return self.title
