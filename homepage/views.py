@@ -10,6 +10,35 @@ def home(request):
 
     return render(request, 'homepage/home.html', context)
 
+def projects(request):
+
+    context = {
+        'projects':[(a,a.projectimage_set.all(),a.projectimage_set.all().count()) for a in Project.objects.all().order_by('title')],
+    }
+
+    return render(request, 'homepage/projects.html', context)
+
+def events(request):
+
+    events = [(a,a.eventimage_set.all(),a.eventimage_set.all().count()) for a in Event.objects.filter(display=1).order_by('date')]
+
+    context = {
+        'events':events,
+        'events_reversed':events[::-1],
+        'photos':EventImage.objects.filter(associated_event__title = "Generic Past Event"),
+        'today':datetime.date.today
+    }
+
+    return render(request, 'homepage/events.html', context)
+
+def blog(request):
+
+    context = {
+        'posts':[(a,a.blogpostimage_set.all(),a.blogpostimage_set.all().count()) for a in BlogPost.objects.all().order_by('-date')]
+    }
+
+    return render(request, 'homepage/blog.html', context)
+
 def exec(request):
 
     context = {
@@ -18,33 +47,6 @@ def exec(request):
     }
 
     return render(request, 'homepage/exec.html', context)
-
-def projects(request):
-
-    context = {
-        'current_projects':Project.objects.filter(past=0).order_by('title'),
-        'past_projects':Project.objects.filter(past=1).order_by('title')
-    }
-
-    return render(request, 'homepage/projects.html', context)
-
-def blog(request):
-
-    context = {
-        'posts':BlogPost.objects.all().order_by('-date')
-    }
-
-    return render(request, 'homepage/blog.html', context)
-
-def events(request):
-
-    context = {
-        'events':Event.objects.filter(display=1).order_by('date'),
-        'photos':EventImage.objects.filter(associated_event__title = "Generic Past Event"),
-        'today':datetime.date.today
-    }
-
-    return render(request, 'homepage/events.html', context)
 
 def subscribe(request):
 

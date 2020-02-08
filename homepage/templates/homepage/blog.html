@@ -6,11 +6,28 @@
 
     <h1 class="display-1">Blog</h1>
 
-    {% for post in posts %}
+    {% for post,images,count in posts %}
         <hr>
         <h4 class="display-4">{{post.title}}</h4>
-        <h4 >{{post.author}} - {{post.date}}</h4>
+        <h4>{{post.author}} - {{post.date}}</h4>
         <p class="lead">{{post.text | safe | linebreaks}}</p>
-        <img class="img-fluid d-block mx-auto py-3" src="{{post.image.url}}">
+        <div class="row">
+            {% if count == 1 %}
+                <div class="col-lg">
+                    <img class="img-fluid d-block mx-auto py-3" src="{{images.0.image.url}}">
+                </div>
+            {% else %}
+                {% for image in images %}
+                    <div class="col-lg-6">
+                        <img class="img-fluid d-block mx-auto py-3" src="{{image.image.url}}">
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+
+
+
+
     {% endfor %}
 {% endblock %}

@@ -3,19 +3,25 @@
 {% block a2 %}active{% endblock %}
 
 {% block main %}
-    <h1 class="display-1">Current Projects</h1>
+    <h1 class="display-1">Projects</h1>
 
     <p class="lead">See what SPS is doing for Duke’s undergraduate physics community! Here’s a sneak peak at the projects we’re currently working on behind the scenes.</p>
 
-    {% for project in current_projects %}
+    {% for project,images,count in projects %}
         <h2 class="project-header">{{project.title}}</h2>
-        <p class="lead project-description">{{project.description|safe}}</p>
-    {% endfor %}
-
-    <h1 class="display-1">Past Projects</h1>
-
-    {% for project in past_projects %}
-        <h2 class="project-header">{{project.title}}</h2>
-        <p class="lead project-description">{{project.description}}</p>
+        <p class="lead project-description">{{project.description | safe}}</p>
+        <div class="row">
+            {% if count == 1 %}
+                <div class="col-lg">
+                    <img class="img-fluid py-3" src="{{images.0.image.url}}">
+                </div>
+            {% else %}
+                {% for image in images %}
+                    <div class="col-lg">
+                        <img class="img-fluid py-3" src="{{image.image.url}}">
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
     {% endfor %}
 {% endblock %}

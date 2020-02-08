@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block pre %}
+    <img class="img-fluid banner-top" src="{% static 'homepage/physicsbuilding.jpeg' %}" alt="">
+{% endblock %}
+
 {% block main %}
     <h1 class="display-1">About Us</h1>
 
@@ -9,7 +13,7 @@
 
     <p class="lead">Our main goal is to build physics community and provide opportunities to grow beyond the classroom. We put on many fun science-themed events throughout the year, coordinate undergraduate outreach, facilitate conference attendance, hold regular chapter meetings, and more. Duke SPS can be whatever you want to make of it!</p>
 
-    <p class="lead">In addition to the fun stuff, there is a strong academic element of SPS both within Duke and in connection with SPS Nationals. By strengthening the physics community, we help members build ties with peers, professors, and potential research mentors. SPS members have presented research, won scholarships, and completed internships in coordination with nationals. There are also many other SPS chapters in the Research Triangle Park area, providing students with numerous opportunities to broaden their physics horizons. Additionally within SPS is Sigma Pi Sigma, the national physics honor society. Read more about the opportunities available <a href="https://www.spsnational.org/about">here</a>.</p>
+    <p class="lead">In addition to the fun stuff, there is a strong academic element of SPS both within Duke and in connection with <a href="https://www.spsnational.org">SPS Nationals</a>. By strengthening the physics community, we help members build ties with peers, professors, and potential research mentors. SPS members have presented research, won scholarships, and completed internships in coordination with nationals. There are also many other SPS chapters in the Research Triangle Park area, providing students with numerous opportunities to broaden their physics horizons. Additionally within SPS is Sigma Pi Sigma, the national physics honor society. Read more about the opportunities available <a href="https://www.spsnational.org/about">here</a>.</p>
 
     <p class="lead">Please email our president Gia Jadick (<a href="mailto:glj13@duke.edu">glj13@duke.edu</a>) or our faculty mentor Dr. Phil Barbeau (<a href="mailto:psbarbeau@phy.duke.edu">psbarbeau@phy.duke.edu</a>) if you would like to join Duke SPS or be included on our email list.</p>
 
@@ -17,4 +21,12 @@
     <img class="d-block mx-auto my-3" src="{% static 'homepage/doublependulum.gif' %}" width='300px;'>
     <p class='lead text-center'>A double pendulum exhibits chaotic behavior.</p>
 
+{% endblock %}
+
+{% block bonusstyles %}
+    <style media="screen">
+        .banner-top {
+            margin-top: -18px;
+        }
+    </style>
 {% endblock %}
