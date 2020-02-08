@@ -4,12 +4,12 @@
 
 {% block main %}
 
-    <h1 class="display-1">Blog</h1>
+    <h3 class="display-3">Blog</h3>
 
     {% for post,images,count in posts %}
         <hr>
-        <h4 class="display-4">{{post.title}}</h4>
-        <h4>{{post.author}} - {{post.date}}</h4>
+        <h2>{{post.title}}</h2>
+        <h5>{{post.author}} - {{post.date}}</h5>
         <p class="lead">{{post.text | safe | linebreaks}}</p>
         <div class="row">
             {% if count == 1 %}
@@ -24,10 +24,5 @@
                 {% endfor %}
             {% endif %}
         </div>
-
-
-
-
-
     {% endfor %}
 {% endblock %}
