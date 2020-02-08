@@ -5,20 +5,26 @@
 {% block a4 %}active{% endblock %}
 
 {% block main %}
-    <h1 class="display-1">Events</h1>
+    <h1 class="display-1">Upcoming Events</h1>
 
     <p class="lead">Here are some events we have coming up soon! If you have any requests for spring semester programming, let us know <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxrwkgbhRk5Pp5SK_bWAe4BcmhFWQ4OAi0EErdaLMWzBaZQw/viewform">here</a>.</p>
 
     {% for event in events %}
-        <h4 class="display-4">{{event.title}}</h4>
-        <h4>{{event.location}}</h4>
-        <h4>{{event.date}} @ {{event.time}}</h4>
-        <p class="lead">{{event.description}}</p>
+        {% if event.date >= today %}
+            <h4 class="display-4">{{event.title}}</h4>
+            <h4>{{event.location}}</h4>
+            <h4>{{event.date}} @ {{event.time}}</h4>
+            <p class="lead">{{event.description}}</p>
+        {% endif %}
     {% endfor %}
 
-    <hr/>
+    <h1 class="display-1">Past Events</h1>
 
-    <p class="lead">Here are some pictures of past events! We host a wide variety of activities, and in the past we’ve put on liquid nitrogen ice-cream socials, tours of lab facilities, hot chocolate astronomy nights, and more.</p>
+
+
+
+
+
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval='3500'>
         <ol class="carousel-indicators">
@@ -42,8 +48,15 @@
             </a>
         </div>
 
-        <div style='height: 60px;'>
+        <p class="lead pt-3">Here are some of our past events! We host a wide variety of activities, and in the past we’ve put on liquid nitrogen ice-cream socials, tours of lab facilities, hot chocolate astronomy nights, and more.</p>
 
-        </div>
+        {% for event in events %}
+            {% if event.date < today %}
+                <h4 class="display-4">{{event.title}}</h4>
+                <h4>{{event.location}}</h4>
+                <h4>{{event.date}} @ {{event.time}}</h4>
+                <p class="lead">{{event.description}}</p>
+            {% endif %}
+        {% endfor %}
     </div>
 {% endblock %}

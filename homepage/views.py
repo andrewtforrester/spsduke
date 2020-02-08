@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from homepage.models import *
+import datetime
 
 def home(request):
 
@@ -38,9 +39,9 @@ def blog(request):
 def events(request):
 
     context = {
-        'events':Event.objects.all().order_by('date'),
-        'photos':Photo.objects.all().order_by('sort_index'),
-        'first_url':Photo.objects.first().image.url
+        'events':Event.objects.filter(display=1).order_by('date'),
+        'photos':EventImage.objects.filter(associated_event__title = "Generic Past Event"),
+        'today':datetime.date.today
     }
 
     return render(request, 'homepage/events.html', context)

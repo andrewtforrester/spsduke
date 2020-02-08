@@ -5,6 +5,8 @@ from homepage.models import *
 
 admin.site.register(ExecMember)
 admin.site.register(Project)
+admin.site.register(ProjectImage)
 admin.site.register(BlogPost)
+admin.site.register(BlogPostImage)
 admin.site.register(Event)
-admin.site.register(Photo)
+admin.site.register(EventImage)
