@@ -11,14 +11,6 @@
         <h4 class="display-4">{{post.title}}</h4>
         <h4 >{{post.author}} - {{post.date}}</h4>
         <p class="lead">{{post.text | safe | linebreaks}}</p>
-        <img class="img-fluid d-block mx-auto blog-image py-3" src="{{post.image.url}}">
+        <img class="img-fluid d-block mx-auto py-3" src="{{post.image.url}}">
     {% endfor %}
-{% endblock %}
-
-{% block bonusstyles %}
-    <style media="screen">
-        .blog-image {
-            max-width: 500px;
-        }
-    </style>
 {% endblock %}
