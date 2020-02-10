@@ -6,111 +6,76 @@
 
 {% block title %} - Events{% endblock %}
 
+{% block pre %}
+    <div class="container-fluid d-none d-md-block">
+        <div class="row px-3">
+            {% for photo in photos %}
+                <div class="col-md-4 px-2">
+                    <img class="img-fluid py-2" src="{{photo.image.url}}">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container-fluid d-block d-md-none">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval='3500'>
+            <ol class="carousel-indicators">
+                {% for photo in photos %}
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{photo.sort_index}}" class="{% if forloop.first %}active{% endif %}"></li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for photo in photos %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img class="d-block w-100" src="{{photo.image.url}}">
+                    </div>
+                {% endfor %}
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
 {% block main %}
+
     <h3 class="display-3">Upcoming Events</h3>
 
     <p class="lead">Here are some events we have coming up soon! If you have any requests for spring semester programming, let us know <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxrwkgbhRk5Pp5SK_bWAe4BcmhFWQ4OAi0EErdaLMWzBaZQw/viewform">here</a>.</p>
 
-    {% for event,images,count in events %}
+    {% for event,image in events %}
         {% if event.date >= today %}
             <h2>{{event.title}}</h2>
             <h5>{{event.location}}</h5>
             <h5>{{event.date}} @ {{event.time}}</h5>
             <p class="lead">{{event.description|safe}}</p>
-            <div class="row">
-                {% if count == 1 %}
-                    <div class="col-lg">
-                        <img class="img-fluid py-3 mx-auto d-block" src="{{images.0.image.url}}">
-                    </div>
-                {% else %}
-                    {% for image in images %}
-                        {% if image.preference == 1 %}
-                            <div class="col-lg-12">
-                                <img class="img-fluid py-3" src="{{image.image.url}}">
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                    {% for image in images %}
-                        {% if image.preference == 0 and image.image.height > image.image.width %}
-                            <div class="col-lg-4">
-                                <img class="img-fluid py-3" src="{{image.image.url}}">
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                    {% for image in images %}
-                        {% if image.preference == 0 and image.image.height <= image.image.width %}
-                            <div class="col-lg-4">
-                                <img class="img-fluid py-3" src="{{image.image.url}}">
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
+            <div class="col-lg-9 mx-auto d-block">
+                <img class="img-fluid py-3" src="{{image.image.url}}">
             </div>
         {% endif %}
     {% endfor %}
 
     <h3 class="display-3">Past Events</h3>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval='3500'>
-        <ol class="carousel-indicators">
-            {% for photo in photos %}
-                <li data-target="#carouselExampleIndicators" data-slide-to="{{photo.sort_index}}" class="{% if forloop.first %}active{% endif %}"></li>
-            {% endfor %}
-        </ol>
-        <div class="carousel-inner">
-            {% for photo in photos %}
-                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <img class="d-block w-100" src="{{photo.image.url}}">
-                </div>
-            {% endfor %}
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
 
-        <p class="lead pt-3">Here are some of our past events! We host a wide variety of activities, and in the past we’ve put on liquid nitrogen ice-cream socials, tours of lab facilities, hot chocolate astronomy nights, and more.</p>
 
-        {% for event,images,count in events_reversed %}
-            {% if event.date < today %}
-                <h2>{{event.title}}</h2>
-                <h5>{{event.location}}</h5>
-                <h5>{{event.date}} @ {{event.time}}</h5>
-                <p class="lead">{{event.description|safe}}</p>
-                <div class="row">
-                    {% if count == 1 %}
-                        <div class="col-lg">
-                            <img class="img-fluid py-3 mx-auto d-block" src="{{images.0.image.url}}">
-                        </div>
-                    {% else %}
-                        {% for image in images %}
-                            {% if image.preference == 1 %}
-                                <div class="col-lg-12">
-                                    <img class="img-fluid py-3" src="{{image.image.url}}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                        {% for image in images %}
-                            {% if image.preference == 0 and image.image.height > image.image.width %}
-                                <div class="col-lg-4">
-                                    <img class="img-fluid py-3" src="{{image.image.url}}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                        {% for image in images %}
-                            {% if image.preference == 0 and image.image.height <= image.image.width %}
-                                <div class="col-lg-4">
-                                    <img class="img-fluid py-3" src="{{image.image.url}}">
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
+    <p class="lead pt-3">Here are some of our past events! We host a wide variety of activities, and in the past we’ve put on liquid nitrogen ice-cream socials, tours of lab facilities, hot chocolate astronomy nights, and more.</p>
+
+    {% for event,image in events_reversed %}
+        {% if event.date < today %}
+            <h2>{{event.title}}</h2>
+            <h5>{{event.location}}</h5>
+            <h5>{{event.date}} @ {{event.time}}</h5>
+            <p class="lead">{{event.description|safe}}</p>
+            <div class="col-lg-9 mx-auto d-block">
+                <img class="img-fluid py-3" src="{{image.image.url}}">
+            </div>
+        {% endif %}
+    {% endfor %}
 {% endblock %}

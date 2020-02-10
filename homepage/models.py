@@ -28,7 +28,7 @@ class Project(models.Model):
 class ProjectImage(models.Model):
     associated_project = models.ForeignKey(Project, on_delete=models.CASCADE)
     image = models.ImageField()
-    caption = models.TextField(default='')
+    caption = models.TextField(default='', blank=True)
 
     def __str__(self):
         return 'Image for \'' + self.associated_project.title + '\''
@@ -48,7 +48,7 @@ class BlogPostImage(models.Model):
     associated_blog_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
     image = models.ImageField()
     preference = models.IntegerField(default=0)
-    caption = models.TextField(default='')
+    caption = models.TextField(default='', blank=True)
 
     def __str__(self):
         return 'Image for \'' + self.associated_blog_post.title + '\''
@@ -69,8 +69,7 @@ class Event(models.Model):
 class EventImage(models.Model):
     associated_event = models.ForeignKey(Event, on_delete=models.CASCADE)
     image = models.ImageField()
-    preference = models.IntegerField(default=0)
-    caption = models.TextField(default='')
+    caption = models.TextField(default='', blank=True)
 
     def __str__(self):
         return 'Image from \'' + self.associated_event.title + '\''
