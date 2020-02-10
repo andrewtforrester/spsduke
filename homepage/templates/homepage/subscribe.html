@@ -28,8 +28,10 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <hr>
-    <img class="img-fluid d-block mx-auto pt-3" src="{% static 'homepage/newtonscradle.gif' %}" alt="" width="800px">
-    <p class="text-center pt-3">Newton’s cradle showing off the conservation principles of momentum and energy.</p>
+    <div class="col-lg-9 mx-auto d-block">
+        <img class="img-fluid" src="{% static 'homepage/newtonscradle.gif' %}">
+    </div>
+    <p class="lead text-center pt-3">Newton’s cradle showing off the conservation principles of momentum and energy.</p>
 {% endblock %}
 
 {% block bonusstyles %}
