@@ -14,13 +14,9 @@ class ExecMember(models.Model):
     def __str__(self):
         return self.full_name
 
-#----------PROJECTS----------
-
 class Project(models.Model):
     title = models.CharField(max_length=500)
-    description = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(blank=True) #MARKED FOR DELETION
+    description = models.TextField(blank=True)
 
     def __str__(self):
         return self.title
@@ -47,7 +43,6 @@ class BlogPost(models.Model):
 class BlogPostImage(models.Model):
     associated_blog_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
     image = models.ImageField()
-    preference = models.IntegerField(default=0)
     caption = models.TextField(default='', blank=True)
 
     def __str__(self):
@@ -61,7 +56,7 @@ class Event(models.Model):
     location = models.CharField(max_length=500)
     date = models.DateField()
     time = models.TimeField(blank=True)
-    display = models.IntegerField()
+    display = models.IntegerField(default=1)
 
     def __str__(self):
         return self.title

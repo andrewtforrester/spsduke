@@ -2,6 +2,8 @@
 
 {% block a1 %}active{% endblock %}
 
+{% load static %}
+
 {% block title %} - Exec{% endblock %}
 
 {% block main %}
@@ -30,6 +32,9 @@
             </div>
         </div>
     {% endfor %}
+    <hr>
+    <img class="mx-auto d-block" src="{% static 'homepage/pillars.jpg' %}" style='max-width: 500px;'>
+    <p class="lead text-center py-2">The Pillars of Creation are loacated in the Eagle Nebula...<a href="https://en.wikipedia.org/wiki/Pillars_of_Creation#Theorized_destruction">and may have been destroyed over 6000 years ago</a>.</p>
 {% endblock %}
 
 {% block bonusstyles %}
