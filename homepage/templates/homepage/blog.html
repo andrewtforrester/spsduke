@@ -9,9 +9,10 @@
 
     {% for post,images,count in posts %}
         <hr>
+        <div class="anchor" id = '{{post.title}}'></div>
         <h2>{{post.title}}</h2>
         <h5>{{post.author}} - {{post.date}}</h5>
-        <p class="lead">{{post.text | safe | linebreaks | urlize}}</p>
+        <p class="lead">{{post.text | safe | linebreaks}}</p>
 
         <div class="row">
             {% if count == 1 %}
@@ -21,21 +22,14 @@
                 </div>
             {% else %}
                 {% for image in images %}
-                    {% if image.preference == 1 %}
-                        <div class="col-lg-12">
-                            <img class="img-fluid py-3" src="{{image.image.url}}">
-                        </div>
-                    {% endif %}
-                {% endfor %}
-                {% for image in images %}
-                    {% if image.preference == 0 and image.image.height > image.image.width %}
+                    {% if image.image.height > image.image.width %}
                         <div class="col-lg-4">
                             <img class="img-fluid py-3" src="{{image.image.url}}">
                         </div>
                     {% endif %}
                 {% endfor %}
                 {% for image in images %}
-                    {% if image.preference == 0 and image.image.height <= image.image.width %}
+                    {% if image.image.height <= image.image.width %}
                         <div class="col-lg-4">
                             <img class="img-fluid py-3" src="{{image.image.url}}">
                         </div>

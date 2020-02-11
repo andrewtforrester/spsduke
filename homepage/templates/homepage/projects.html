@@ -9,6 +9,7 @@
     <p class="lead">See what SPS is doing for Duke’s undergraduate physics community! Here’s a sneak peak at the projects we’re currently working on behind the scenes.</p>
 
     {% for project,images,count in projects %}
+        <div class="anchor" id = '{{project.title}}'></div>
         <h2 class="project-header">{{project.title}}</h2>
         <p class="lead project-description">{{project.description | safe}}</p>
         <div class="row">

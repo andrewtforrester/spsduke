@@ -48,6 +48,7 @@
 
     {% for event,image in events %}
         {% if event.date >= today %}
+            <div class="anchor" id = '{{event.title}}'></div>
             <h2>{{event.title}}</h2>
             <h5>{{event.location}}</h5>
             <h5>{{event.date}} @ {{event.time}}</h5>
@@ -66,6 +67,7 @@
 
     {% for event,image in events_reversed %}
         {% if event.date < today %}
+            <div class="anchor" id = '{{event.title}}'></div>
             <h2>{{event.title}}</h2>
             <h5>{{event.location}}</h5>
             <h5>{{event.date}} @ {{event.time}}</h5>
