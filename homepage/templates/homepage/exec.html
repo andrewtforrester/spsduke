@@ -9,10 +9,23 @@
 
     <h4 class="display-4">2020-2021</h4>
 
-    {% for exec in execs2020 %}
+{% for exec in execs2020 %}
+        <div class="row">
+            <div class="col-lg">
+                <img  class="img-fluid py-3" src="{{exec.picture.url}}">
+            </div>
+            <div class="anchor" id = '{{exec.full_name}}'></div>
+            <div class="col-lg">
+                <h2 class="pt-3">{{exec.full_name}}</h2>
+                <h4>{{exec.position}}</h4>
+                <h4>Class of {{exec.graduation_year}} - {{exec.majors}}</h4>
+                <h4>{{exec.email | urlize}}</h4>
+                <p class="lead">{{exec.description}}</p>
+            </div>
+        </div>
     {% endfor %}
 
-    <h4 class="display-4">2019-2020</h4>
+<h4 class="display-4">2019-2020</h4>
 
     {% for exec in execs2019 %}
         <div class="row">
