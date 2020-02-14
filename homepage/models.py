@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 class ExecMember(models.Model):
     full_name = models.CharField(max_length=100)
@@ -56,6 +57,7 @@ class Event(models.Model):
     location = models.CharField(max_length=500)
     date = models.DateField()
     time = models.TimeField(blank=True)
+    end = models.TimeField(blank=True, null=True)
     display = models.IntegerField(default=1)
 
     def __str__(self):
