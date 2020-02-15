@@ -70,3 +70,12 @@ class EventImage(models.Model):
 
     def __str__(self):
         return 'Image from \'' + self.associated_event.title + '\''
+
+class Subscriber(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    date_added = models.DateField(default=datetime.date.today)
+    comment = models.TextField()
+
+    def __str__(self):
+        return self.name + " -- " + self.email

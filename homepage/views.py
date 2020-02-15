@@ -35,7 +35,20 @@ def exec(request):
     }
     return render(request, 'homepage/exec.html', context)
 
-def subscribe(request):
-    context = {
-    }
-    return render(request, 'homepage/subscribe.html', context)
+def subscribe(request, submitted=""):
+    if not submitted == "":
+        test_field = [a.email for a in Subscriber.objects.all()]
+        duplicate = False
+        r_email = request.GET['email']
+
+        for test in test_field:
+            if test == r_email:
+                duplicate = True
+                break
+
+        if not duplicate:
+            b = Subscriber(name=request.GET['name'],email=r_email,comment=request.GET['comment'])
+            b.save()
+        return render(request, 'homepage/subscribe_thanks.html', {})
+    else:
+        return render(request, 'homepage/subscribe.html', {})
