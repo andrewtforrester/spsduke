@@ -14,4 +14,4 @@ Our main goal is to build physics community and provide opportunities to grow be
 
 In addition to the fun stuff, there is a strong academic element of SPS both within Duke and in connection with SPS Nationals. By strengthening the physics community, we help members build ties with peers, professors, and potential research mentors. SPS members have presented research, won scholarships, and completed internships in coordination with nationals. There are also many other SPS chapters in the Research Triangle Park area, providing students with numerous opportunities to broaden their physics horizons. Additionally within SPS is Sigma Pi Sigma, the national physics honor society. Read more about the opportunities available [here](https://www.spsnational.org/about).
 
-Please email our president Gia Jadick (glj13@duke.edu) or our faculty mentor Dr. Phil Barbeau (psbarbeau@phy.duke.edu) if you would like to join Duke SPS or be included on our email list.
+Please email our president Nicole Crumpler (nrc24@duke.edu) or our faculty mentor Dr. Phil Barbeau (psbarbeau@phy.duke.edu) if you would like to join Duke SPS or be included on our email list.
