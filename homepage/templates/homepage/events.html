@@ -57,8 +57,8 @@
                 <h5>{{event.date}} @ {{event.time}} - {{event.end}}</h5>
             {% endif %}
             <p class="lead">{{event.description|safe}}</p>
-            <div class="col-9 mx-auto d-block">
-                <img class="img-fluid py-3" src="{{image.image.url}}">
+            <div class="col-lg-9 mx-auto d-block">
+                <img class="img-fluid mx-auto d-block py-3" src="{{image.image.url}}">
             </div>
         {% endif %}
     {% endfor %}
@@ -74,15 +74,15 @@
             <h5>{{event.location}}</h5>
             <h5>{{event.date}} @ {{event.time}}</h5>
             <p class="lead">{{event.description|safe}}</p>
-            <div class="col-9 mx-auto d-block">
-                <img class="img-fluid py-3" src="{{image.image.url}}">
+            <div class="col-lg-9 mx-auto d-block">
+                <img class="img-fluid mx-auto d-block py-3" src="{{image.image.url}}">
             </div>
         {% endif %}
     {% endfor %}
 
     <hr>
-    <div class="col-6 mx-auto d-block px-0">
-        <img class="img-fluid" src="{% static 'homepage/blackholemerger.gif' %}">
+    <div class="col-lg-6 mx-auto d-block px-0">
+        <img class="img-fluid mx-auto d-block" src="{% static 'homepage/blackholemerger.gif' %}">
     </div>
     <p class="lead text-center py-2">Black hole mergers create strong gravitational waves like the ones detected by LIGO in 2016.</p>
 {% endblock %}
