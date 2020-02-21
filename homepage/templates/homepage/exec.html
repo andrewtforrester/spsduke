@@ -6,49 +6,49 @@
 {% block main %}
 <div class="container-fluid">
     <div class="mx-auto rcol1">
-    <h3 class="display-3">Exec</h3>
-    <p class="lead">SPS is a student-driven organization. Here are the faces behind the action, past and present. Feel free to reach out to anyone!</p>
-    <hr>
-    <h4 class="display-4">2020</h4>
+        <h3 class="display-3">Exec</h3>
+        <p class="lead">SPS is a student-driven organization. Here are the faces behind the action, past and present. Feel free to reach out to anyone!</p>
+        <hr>
+        <h4 class="display-4">2020</h4>
 
-    {% for exec in execs2020 %}
-        <div class="row">
-            <div class="col-lg">
-                <img  class="img-fluid py-3" src="{{exec.picture.url}}">
+        {% for exec in execs2020 %}
+            <div class="row">
+                <div class="col-lg">
+                    <img  class="img-fluid py-3" src="{{exec.picture.url}}">
+                </div>
+                <div class="anchor" id = '{{exec.full_name}}'></div>
+                <div class="col-lg">
+                    <h2 class="pt-3">{{exec.full_name}}</h2>
+                    <h4>{{exec.position}}</h4>
+                    <h4>Class of {{exec.graduation_year}} - {{exec.majors}}</h4>
+                    <h4>{{exec.email | urlize}}</h4>
+                    <p class="lead">{{exec.description}}</p>
+                </div>
             </div>
-            <div class="anchor" id = '{{exec.full_name}}'></div>
-            <div class="col-lg">
-                <h2 class="pt-3">{{exec.full_name}}</h2>
-                <h4>{{exec.position}}</h4>
-                <h4>Class of {{exec.graduation_year}} - {{exec.majors}}</h4>
-                <h4>{{exec.email | urlize}}</h4>
-                <p class="lead">{{exec.description}}</p>
-            </div>
-        </div>
-    {% endfor %}
-    <hr>
-    <h4 class="display-4">2019</h4>
+        {% endfor %}
+        <hr>
+        <h4 class="display-4">2019</h4>
 
-    {% for exec in execs2019 %}
-        <div class="row">
-            <div class="col-lg">
-                <img  class="img-fluid py-3" src="{{exec.picture.url}}">
+        {% for exec in execs2019 %}
+            <div class="row">
+                <div class="col-lg">
+                    <img  class="img-fluid py-3" src="{{exec.picture.url}}">
+                </div>
+                <div class="anchor" id = '{{exec.full_name}}'></div>
+                <div class="col-lg">
+                    <h2 class="pt-3">{{exec.full_name}}</h2>
+                    <h4>{{exec.position}}</h4>
+                    <h4>Class of {{exec.graduation_year}} - {{exec.majors}}</h4>
+                    <h4>{{exec.email | urlize}}</h4>
+                    <p class="lead">{{exec.description}}</p>
+                </div>
             </div>
-            <div class="anchor" id = '{{exec.full_name}}'></div>
-            <div class="col-lg">
-                <h2 class="pt-3">{{exec.full_name}}</h2>
-                <h4>{{exec.position}}</h4>
-                <h4>Class of {{exec.graduation_year}} - {{exec.majors}}</h4>
-                <h4>{{exec.email | urlize}}</h4>
-                <p class="lead">{{exec.description}}</p>
-            </div>
+        {% endfor %}
+        <hr>
+        <div class="col-lg-6 mx-auto d-block px-0">
+            <img class="img-fluid" src="{% static 'homepage/pillars.jpg' %}">
         </div>
-    {% endfor %}
-    <hr>
-    <div class="col-lg-6 mx-auto d-block px-0">
-        <img class="img-fluid" src="{% static 'homepage/pillars.jpg' %}">
-    </div>
-    <p class="lead text-center py-2">The Pillars of Creation are loacated in the Eagle Nebula...<a href="https://en.wikipedia.org/wiki/Pillars_of_Creation#Theorized_destruction">and may have been destroyed over 6000 years ago</a>!</p>
+        <p class="lead text-center py-2">The Pillars of Creation are loacated in the Eagle Nebula...<a href="https://en.wikipedia.org/wiki/Pillars_of_Creation#Theorized_destruction">and may have been destroyed over 6000 years ago</a>!</p>
     </div>
 </div>
 {% endblock %}

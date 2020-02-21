@@ -4,33 +4,36 @@
 {% block title %} - Subscribe{% endblock %}
 
 {% block main %}
-<div class="container-fluid">
-    <div class="mx-auto rcol1">
-    {% block thanks %}{% endblock %}
-    <h3 class="display-3">Subscribe</h3>
-    <p class="lead">Want to learn more about physics and get involved with Duke SPS? Subscribe to our listserv by filling out the form below or emailing Nicole Crumpler (<a href="mailto:nrc24@duke.edu">nrc24@duke.edu</a>).</p>
+    <div class="container-fluid">
+        <div class="mx-auto rcol1">
+            {% block thanks %}{% endblock %}
+            <h3 class="display-3">Subscribe</h3>
+            <p class="lead">Want to learn more about physics and get involved with Duke SPS? Subscribe to our listserv by filling out the form below or emailing Nicole Crumpler (<a href="mailto:nrc24@duke.edu">nrc24@duke.edu</a>).</p>
 
-    <form action="/subscribe/submitted/" method="get">
-        <div class="form-group">
-            <label for="name">Full Name</label>
-            <input class="form-control" id="name" name='name'>
-        </div>
-        <div class="form-group">
-            <label for="email">Duke Email</label>
-            <input class="form-control" id="email" name="email">
-        </div>
+            <form action="/subscribe/submitted/" method="get">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input class="form-control" id="name" name='name'>
+                </div>
+                <div class="form-group">
+                    <label for="email">Duke Email</label>
+                    <input class="form-control" id="email" name="email">
+                </div>
 
-        <div class="form-group">
-            <label for="comment">Comment</label>
-            <textarea class="form-control box-large align-text-top" id="comment" name="comment"></textarea>
+                <div class="form-group">
+                    <label for="comment">Comment</label>
+                    <textarea class="form-control box-large align-text-top" id="comment" name="comment"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <hr>
+
+            <div class="col-lg-9 mx-auto d-block">
+                <img class="img-fluid" src="{% static 'homepage/newtonscradle.gif' %}">
+            </div>
+            
+            <p class="lead text-center pt-3">Newton’s cradle showing off the conservation principles of momentum and energy.</p>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <hr>
-    <div class="col-lg-9 mx-auto d-block">
-        <img class="img-fluid" src="{% static 'homepage/newtonscradle.gif' %}">
     </div>
-    <p class="lead text-center pt-3">Newton’s cradle showing off the conservation principles of momentum and energy.</p>
-    </div>
-</div>
 {% endblock %}
