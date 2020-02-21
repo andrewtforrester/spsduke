@@ -1,9 +1,9 @@
 {% extends 'homepage/base.html' %}
 {% load static %}
-{% block a4 %}active{% endblock %}
+{% block a2 %}active{% endblock %}
 {% block title %} - Events{% endblock %}
 
-{% block pre %}
+{% block main %}
     <div class="container-fluid d-none d-md-block">
         <div class="row px-3">
             {% for photo in photos %}
@@ -38,51 +38,52 @@
         </div>
     </div>
 
-{% endblock %}
+    <div class="container-fluid">
+        <div class="mx-auto rcol1">
 
-{% block main %}
+            <h3 class="display-3 pt-3">Upcoming Events</h3>
 
-    <h3 class="display-3 pt-3">Upcoming Events</h3>
+            <p class="lead">Here are some events we have coming up soon! If you have any requests for spring semester programming, let us know <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxrwkgbhRk5Pp5SK_bWAe4BcmhFWQ4OAi0EErdaLMWzBaZQw/viewform">here</a>.</p>
 
-    <p class="lead">Here are some events we have coming up soon! If you have any requests for spring semester programming, let us know <a href="https://docs.google.com/forms/d/e/1FAIpQLSfxrwkgbhRk5Pp5SK_bWAe4BcmhFWQ4OAi0EErdaLMWzBaZQw/viewform">here</a>.</p>
+            {% for event,image in events %}
+                {% if event.date >= today %}
+                    <div class="anchor" id = '{{event.title}}'></div>
+                    <h2>{{event.title}}</h2>
+                    <h5>{{event.location}}</h5>
+                    {% if event.end == none %}
+                        <h5>{{event.date}} @ {{event.time}}</h5>
+                    {% else %}
+                        <h5>{{event.date}} @ {{event.time}} - {{event.end}}</h5>
+                    {% endif %}
+                    <p class="lead">{{event.description|safe}}</p>
+                    <div class="col-sm-9 mx-auto d-block">
+                        <img class="img-fluid mx-auto d-block py-3" src="{{image.image.url}}">
+                    </div>
+                {% endif %}
+            {% endfor %}
 
-    {% for event,image in events %}
-        {% if event.date >= today %}
-            <div class="anchor" id = '{{event.title}}'></div>
-            <h2>{{event.title}}</h2>
-            <h5>{{event.location}}</h5>
-            {% if event.end == none %}
-                <h5>{{event.date}} @ {{event.time}}</h5>
-            {% else %}
-                <h5>{{event.date}} @ {{event.time}} - {{event.end}}</h5>
-            {% endif %}
-            <p class="lead">{{event.description|safe}}</p>
-            <div class="col-sm-9 mx-auto d-block">
-                <img class="img-fluid mx-auto d-block py-3" src="{{image.image.url}}">
+            <h3 class="display-3">Past Events</h3>
+
+            <p class="lead pt-3">Here are some of our past events! We host a wide variety of activities, and in the past we’ve put on liquid nitrogen ice-cream socials, tours of lab facilities, hot chocolate astronomy nights, and more.</p>
+
+            {% for event,image in events_reversed %}
+                {% if event.date < today %}
+                    <div class="anchor" id = '{{event.title}}'></div>
+                    <h2>{{event.title}}</h2>
+                    <h5>{{event.location}}</h5>
+                    <h5>{{event.date}} @ {{event.time}}</h5>
+                    <p class="lead">{{event.description|safe}}</p>
+                    <div class="col-sm-9 mx-auto d-block">
+                        <img class="img-fluid mx-auto d-block py-3" src="{{image.image.url}}">
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <hr>
+            <div class="col-sm-6 mx-auto d-block px-0">
+                <img class="img-fluid mx-auto d-block" src="{% static 'homepage/blackholemerger.gif' %}">
             </div>
-        {% endif %}
-    {% endfor %}
-
-    <h3 class="display-3">Past Events</h3>
-
-    <p class="lead pt-3">Here are some of our past events! We host a wide variety of activities, and in the past we’ve put on liquid nitrogen ice-cream socials, tours of lab facilities, hot chocolate astronomy nights, and more.</p>
-
-    {% for event,image in events_reversed %}
-        {% if event.date < today %}
-            <div class="anchor" id = '{{event.title}}'></div>
-            <h2>{{event.title}}</h2>
-            <h5>{{event.location}}</h5>
-            <h5>{{event.date}} @ {{event.time}}</h5>
-            <p class="lead">{{event.description|safe}}</p>
-            <div class="col-sm-9 mx-auto d-block">
-                <img class="img-fluid mx-auto d-block py-3" src="{{image.image.url}}">
-            </div>
-        {% endif %}
-    {% endfor %}
-
-    <hr>
-    <div class="col-sm-6 mx-auto d-block px-0">
-        <img class="img-fluid mx-auto d-block" src="{% static 'homepage/blackholemerger.gif' %}">
+            <p class="lead text-center py-2">Black hole mergers create strong gravitational waves like the ones detected by LIGO in 2016.</p>
+        </div>
     </div>
-    <p class="lead text-center py-2">Black hole mergers create strong gravitational waves like the ones detected by LIGO in 2016.</p>
 {% endblock %}
