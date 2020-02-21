@@ -4,6 +4,8 @@
 {% block title %} - Projects{% endblock %}
 
 {% block main %}
+<div class="container-fluid">
+    <div class="mx-auto rcol1">
     <h3 class="display-3">Projects</h3>
 
     <p class="lead">See what SPS is doing for Duke’s undergraduate physics community! Here’s a sneak peak at the projects we’re currently working on behind the scenes.</p>
@@ -31,4 +33,7 @@
     <img class="mx-auto d-block" src="{% static 'homepage/wave.gif' %}">
     <p>$$i \hbar \frac{\partial}{\partial t}\Psi(x,t) = \Big[ -\frac{\hbar ^2}{2m} \nabla^2 + V(x) \Big]\Psi(x,t)$$</p>
     <p class="lead text-center">The Schrodinger Equation governs the evolution of the wavefunction in quantum mechnaics.</p>
+
+    </div>
+</div>
 {% endblock %}
